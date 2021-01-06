@@ -24,8 +24,7 @@ class ProductController extends Controller
         return view('products.create');
     }
     public function store(){
-
-        $this->authorize('create');
+        
         $this->validateProduct();
         if(request()->hasFile('product_image')){
             $path = request()->file('product_image')->store('products','public');
