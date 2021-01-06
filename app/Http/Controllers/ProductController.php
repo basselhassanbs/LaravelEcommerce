@@ -24,7 +24,7 @@ class ProductController extends Controller
         return view('products.create');
     }
     public function store(){
-        
+
         $this->validateProduct();
         if(request()->hasFile('product_image')){
             $path = request()->file('product_image')->store('products','public');
@@ -95,7 +95,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required',
             'description' => 'required',
-            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     }
     protected function validateProduct2()
