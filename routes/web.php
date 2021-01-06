@@ -22,7 +22,7 @@ Auth::routes();
 
 
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
-Route::post('/products', [App\Http\Controllers\ProductController::class, 'store']);
+Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->middleware('auth');
 Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->middleware('auth');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 Route::get('/products/{product}/edit', [App\Http\Controllers\ProductController::class, 'edit']);
