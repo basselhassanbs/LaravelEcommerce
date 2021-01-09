@@ -39,7 +39,7 @@ class ProductController extends Controller
         // }
 
         if(request()->file()){
-            $fileName = time().'_'.request()->file()->getClientOriginalName();
+            $fileName = time().'_'.request()->file('product_image')->getClientOriginalName();
             $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
             Product::create([
                         'type' => request()->type,
@@ -65,7 +65,7 @@ class ProductController extends Controller
 
         $this->validateProduct2();
         if(request()->hasFile('image_path')){
-            $fileName = time().'_'.request()->file->getClientOriginalName();
+            $fileName = time().'_'.request()->file('product_image')->getClientOriginalName();
             $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
             $product->type = request()->type;
             $product->name = request()->name;
