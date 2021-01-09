@@ -39,7 +39,7 @@ class ProductController extends Controller
         // }
 
         if(request()->file()){
-            $fileName = time().'_'.request()->file->getClientOriginalName();
+            $fileName = time().'_'.request()->file()->getClientOriginalName();
             $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
             Product::create([
                         'type' => request()->type,
