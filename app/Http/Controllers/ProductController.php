@@ -26,16 +26,29 @@ class ProductController extends Controller
     public function store(){
 
         $this->validateProduct();
-        if(request()->hasFile('product_image')){
-            $path = request()->file('product_image')->store('products','public');
+        // if(request()->hasFile('product_image')){
+        //     $path = request()->file('product_image')->store('products','public');
+        //     Product::create([
+        //         'type' => request()->type,
+        //         'name' => request()->name,
+        //         'price' => request()->price,
+        //         'description' => request()->description,
+        //         'user_id' => auth()->user()->id,
+        //         'image_path' => '/storage/'.$path
+        //     ]);
+        // }
+
+        if(request()->file()){
+            $fileName = time().'_'.request()->file->getClientOriginalName();
+            $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
             Product::create([
-                'type' => request()->type,
-                'name' => request()->name,
-                'price' => request()->price,
-                'description' => request()->description,
-                'user_id' => auth()->user()->id,
-                'image_path' => '/storage/'.$path
-            ]);
+                        'type' => request()->type,
+                        'name' => request()->name,
+                        'price' => request()->price,
+                        'description' => request()->description,
+                        'user_id' => auth()->user()->id,
+                        'image_path' => '/storage/'.$filePath
+                    ]);
         }
 
         return redirect('/');
@@ -52,12 +65,13 @@ class ProductController extends Controller
 
         $this->validateProduct2();
         if(request()->hasFile('image_path')){
-            $path = request()->file('image_path')->store('products','public');
+            $fileName = time().'_'.request()->file->getClientOriginalName();
+            $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
             $product->type = request()->type;
             $product->name = request()->name;
             $product->price = request()->price;
             $product->description = request()->description;
-            $product->image_path = '/storage/'.$path;
+            $product->image_path = '/storage/'.$filePath;
             $product->save();
         }
         else
