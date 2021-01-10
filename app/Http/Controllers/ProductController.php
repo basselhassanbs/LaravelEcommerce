@@ -27,39 +27,17 @@ class ProductController extends Controller
 
         $this->validateProduct();
         if(request()->hasFile('product_image')){
-        $filename = time(). '.' .request()->file('product_image')->getClientOriginalExtension();
-        request()->file('product_image')->move(public_path('images'), $filename);
+        $filepath = request('product_image')->store('products');
         Product::create([
                         'type' => request()->type,
                         'name' => request()->name,
                         'price' => request()->price,
                         'description' => request()->description,
                         'user_id' => auth()->user()->id,
-                        'image_path' => 'images/'.$filename
+                        'image_path' => $filepath
                     ]);
         return redirect('/');
         }
-//         if(request()->hasFile('product_image')){
-//             //Get file from the browser 
-//             $path= request()->file('product_image');
-//             // Resize and encode to required type
-//             $img = Image::make($path)->resize(500,500)->encode();
-//             //Provide the file name with extension 
-//             $filename = time(). '.' .$path->getClientOriginalExtension();
-//            //Put file with own name
-//            Storage::put($filename, $img);
-//            //Move file to your location 
-//            Storage::move($filename, 'public/webinar/' . $filename);
-//            //now insert into database 
-//            Product::create([
-//             'type' => request()->type,
-//             'name' => request()->name,
-//             'price' => request()->price,
-//             'description' => request()->description,
-//             'user_id' => auth()->user()->id,
-//             'image_path' => $filename
-//         ]);
-//    }
     }
     public function edit(Product $product){
 
