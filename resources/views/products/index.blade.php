@@ -9,10 +9,11 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="card bg-dark text-white mb-3">
                         <div class="embed-responsive embed-responsive-4by3">
-                            <img class="card-img-top embed-responsive-item" src="{{ asset($product->image_path) }}"
-                                alt="Card image cap">
+                            <img class="card-img-top embed-responsive-item"
+                                src="{{ asset('/storage/' . $product->image_path) }}" alt="Card image cap">
                         </div>
                         <div class="card-body">
+                            {{ asset($product->image_path) }}
                             <h5 class="card-title">{{ $product->type }}</h5>
                             {{-- <p class="card-text">{{ $product->name }}</p>
                             --}}
