@@ -27,7 +27,7 @@ class ProductController extends Controller
 
         $this->validateProduct();
         if(request()->hasFile('product_image')){
-        $filepath = request('product_image')->store('products');
+        $filepath = request('product_image')->store('photos');
         Product::create([
                         'type' => request()->type,
                         'name' => request()->name,
