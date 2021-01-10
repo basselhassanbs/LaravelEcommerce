@@ -10,7 +10,7 @@
                     <div class="card bg-dark text-white mb-3">
                         <div class="embed-responsive embed-responsive-4by3">
                             <img class="card-img-top embed-responsive-item"
-                                src="{{ asset('storage/app/public' . $product->image_path) }}" alt="Card image cap">
+                                src="{{ asset('storage/app/public/' . $product->image_path) }}" alt="Card image cap">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->type }}</h5>
@@ -26,7 +26,7 @@
                 </div>
                 <label>{{ $product->image_path }}</label>
                 <label>{{ url($product->image_path) }}</label>
-                <label>{{ asset('storage/app/public' . $product->image_path) }}</label>
+                <label>{{ asset('storage/app/public/' . $product->image_path) }}</label>
             @empty
                 <div class="col-8 pt-4 pb-4 mx-auto border-top border-bottom border-dark text-dark font-weight-bold">
                     <h1>Nothing here yet.</h1>
