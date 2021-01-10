@@ -9,7 +9,7 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="card bg-dark text-white mb-3">
                         <div class="embed-responsive embed-responsive-4by3">
-                            <img class="card-img-top embed-responsive-item" src="{{ asset($product->image_path) }}"
+                            <img class="card-img-top embed-responsive-item" src="{{ Storage::url($product->image_path) }}"
                                 alt="Card image cap">
                         </div>
                         <div class="card-body">
@@ -20,6 +20,7 @@
                             <a href="/products/{{ $product->id }}" class="btn btn-outline-primary mb-3 mt-2">View
                                 description</a>
                             <h6 class="text-secondary">Added by {{ $product->user->name }}</h6>
+                            <label>{{ $product->image_path }}</label>
                         </div>
                     </div>
                 </div>
