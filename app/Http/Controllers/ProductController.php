@@ -48,21 +48,6 @@ class ProductController extends Controller
             'image_path' => $filename
         ]);
    }
-        
-        if(request()->file()){
-            $fileName = time().'_'.request()->file('product_image')->getClientOriginalName();
-            request()->file('product_image')->move(public_path('images'), $fileName);
-            Product::create([
-                        'type' => request()->type,
-                        'name' => request()->name,
-                        'price' => request()->price,
-                        'description' => request()->description,
-                        'user_id' => auth()->user()->id,
-                        'image_path' => 'images/' . $fileName
-                    ]);
-        }
-
-        return redirect('/');
     }
     public function edit(Product $product){
 
