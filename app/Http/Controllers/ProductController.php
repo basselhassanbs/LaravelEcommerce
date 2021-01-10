@@ -47,7 +47,7 @@ class ProductController extends Controller
                         'price' => request()->price,
                         'description' => request()->description,
                         'user_id' => auth()->user()->id,
-                        'image_path' => '/storage/'.$filePath
+                        'image_path' => $filePath
                     ]);
         }
 
