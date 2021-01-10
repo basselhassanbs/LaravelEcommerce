@@ -20,10 +20,13 @@
                             <a href="/products/{{ $product->id }}" class="btn btn-outline-primary mb-3 mt-2">View
                                 description</a>
                             <h6 class="text-secondary">Added by {{ $product->user->name }}</h6>
-                            <label>{{ $product->image_path }}</label>
+
                         </div>
                     </div>
                 </div>
+                <label>{{ $product->image_path }}</label>
+                <label>{{ url($product->image_path) }}</label>
+                <label>{{ asset($product->image_path) }}</label>
             @empty
                 <div class="col-8 pt-4 pb-4 mx-auto border-top border-bottom border-dark text-dark font-weight-bold">
                     <h1>Nothing here yet.</h1>
