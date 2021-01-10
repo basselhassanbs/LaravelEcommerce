@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function store(){
 
         $this->validateProduct();
-
+        if(request()->hasFile('product_image')){
         $filename = time(). '.' .request()->file('product_image')->getClientOriginalExtension();
         request()->file('product_image')->move(public_path('images'), $filename);
         Product::create([
@@ -37,6 +37,8 @@ class ProductController extends Controller
                         'user_id' => auth()->user()->id,
                         'image_path' => 'images/'.$filename
                     ]);
+        return redirect('/');
+        }
 //         if(request()->hasFile('product_image')){
 //             //Get file from the browser 
 //             $path= request()->file('product_image');
