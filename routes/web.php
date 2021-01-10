@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/any-route', function () {
-    Artisan::call('storage:link');
+  File::link(storage_path('app/public'), public_path('storage'));
   });
   
 Route::get('/about', function () {
