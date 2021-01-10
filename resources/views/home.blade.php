@@ -24,6 +24,7 @@
                             <img src="{{ Storage::url($product->image_path) }}" width="150px" height="150px"
                                 alt="{{ $product->name }}">
                             <br>
+                            <label>{{ $product->image_path }}</label>
                             <label for="">published at {{ $product->created_at }} </label>
                         @endforeach
                     </div>
