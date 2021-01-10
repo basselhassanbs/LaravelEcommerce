@@ -10,7 +10,7 @@
                     <div class="card bg-dark text-white mb-3">
                         <div class="embed-responsive embed-responsive-4by3">
                             <img class="card-img-top embed-responsive-item"
-                                src="{{ asset('storage/app/public/' . $product->image_path) }}" alt="Card image cap">
+                                src="{{ asset('storage/webinar/' . $product->image_path) }}" alt="Card image cap">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->type }}</h5>

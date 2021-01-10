@@ -26,28 +26,39 @@ class ProductController extends Controller
     public function store(){
 
         $this->validateProduct();
-        // if(request()->hasFile('product_image')){
-        //     $path = request()->file('product_image')->store('products','public');
-        //     Product::create([
-        //         'type' => request()->type,
-        //         'name' => request()->name,
-        //         'price' => request()->price,
-        //         'description' => request()->description,
-        //         'user_id' => auth()->user()->id,
-        //         'image_path' => '/storage/'.$path
-        //     ]);
-        // }
 
+        if(request()->hasFile('product_image')){
+            //Get file from the browser 
+            $path= request()->file('product_image');
+            // Resize and encode to required type
+            $img = Image::make($path)->resize(500,500)->encode();
+            //Provide the file name with extension 
+            $filename = time(). '.' .$path->getClientOriginalExtension();
+           //Put file with own name
+           Storage::put($filename, $img);
+           //Move file to your location 
+           Storage::move($filename, 'public/webinar/' . $filename);
+           //now insert into database 
+           Product::create([
+            'type' => request()->type,
+            'name' => request()->name,
+            'price' => request()->price,
+            'description' => request()->description,
+            'user_id' => auth()->user()->id,
+            'image_path' => $filename
+        ]);
+   }
+        
         if(request()->file()){
             $fileName = time().'_'.request()->file('product_image')->getClientOriginalName();
-            $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
+            request()->file('product_image')->move(public_path('images'), $fileName);
             Product::create([
                         'type' => request()->type,
                         'name' => request()->name,
                         'price' => request()->price,
                         'description' => request()->description,
                         'user_id' => auth()->user()->id,
-                        'image_path' => $filePath
+                        'image_path' => 'images/' . $fileName
                     ]);
         }
 
@@ -66,12 +77,12 @@ class ProductController extends Controller
         $this->validateProduct2();
         if(request()->hasFile('image_path')){
             $fileName = time().'_'.request()->file('product_image')->getClientOriginalName();
-            $filePath = request()->file('product_image')->storeAs('uploads', $fileName, 'public');
+            request()->file('product_image')->move(public_path('images'), $fileName);
             $product->type = request()->type;
             $product->name = request()->name;
             $product->price = request()->price;
             $product->description = request()->description;
-            $product->image_path = '/storage/'.$filePath;
+            $product->image_path = 'images/' . $fileName;
             $product->save();
         }
         else
