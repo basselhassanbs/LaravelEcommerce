@@ -27,14 +27,14 @@ class ProductController extends Controller
 
         $this->validateProduct();
         if(request()->hasFile('product_image')){
-        $filepath = request('product_image')->store('photos');
+        $filename = request('product_image')->store('products');
         Product::create([
                         'type' => request()->type,
                         'name' => request()->name,
                         'price' => request()->price,
                         'description' => request()->description,
                         'user_id' => auth()->user()->id,
-                        'image_path' => $filepath
+                        'image_path' => $filename
                     ]);
         return redirect('/');
         }
