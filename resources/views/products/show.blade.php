@@ -19,19 +19,25 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset($product->image_path) }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
                                         alt="First slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset($product->image_path) }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
                                         alt="First slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset($product->image_path) }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
+                                        alt="First slide">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="embed-responsive embed-responsive-21by9">
+                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
                                         alt="First slide">
                                 </div>
                             </div>
