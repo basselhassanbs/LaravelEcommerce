@@ -19,25 +19,25 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset('images/1610249432.jpg') }}"
                                         alt="First slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset('images/1610249432.jpg') }}"
                                         alt="First slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset('images/1610249432.jpg') }}"
                                         alt="First slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="embed-responsive embed-responsive-21by9">
-                                    <img class="d-block w-100 embed-responsive-item" src="{{  }}"
+                                    <img class="d-block w-100 embed-responsive-item" src="{{ asset('images/1610249432.jpg') }}"
                                         alt="First slide">
                                 </div>
                             </div>

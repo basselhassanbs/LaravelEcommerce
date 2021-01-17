@@ -12,7 +12,7 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="card bg-dark text-white mb-3">
                         <div class="embed-responsive embed-responsive-4by3">
-                            <img class="card-img-top embed-responsive-item" src="{{  }}"
+                            <img class="card-img-top embed-responsive-item" src="{{ asset('images/1610249432.jpg') }}"
                                 alt="Card image cap">
                         </div>
                         <div class="card-body">
